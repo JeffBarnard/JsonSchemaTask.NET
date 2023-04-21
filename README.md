@@ -4,9 +4,9 @@
 # Usage
 
 ```
-<UsingTask TaskName="JsonSchemaGeneratorTask" AssemblyFile="..\JsonSchemaGeneratorTask\bin\Debug\netstandard2.0\JsonSchemaGeneratorTask.dll" />
-<Target Name="SchemaGeneratorTarget" AfterTargets="Build">
-    <JsonSchemaGeneratorTask AssemblyName="$(AssemblyName)" AssemblyPath="$(OutputPath)" ModelDirectory="Models\" ConvertDirectory="JsonSchema\" />
+<UsingTask TaskName = "JsonSchemaTask" AssemblyFile="..\JsonSchemaTask.NET\bin\Debug\netstandard2.0\JsonSchemaTask.dll" />
+<Target Name = "SchemaTarget" AfterTargets="Build">
+	 <JsonSchemaTask AssemblyName = "$(AssemblyName)" AssemblyPath="$(OutputPath)" ModelDirectory="Models\" ConvertDirectory="JsonSchema\" />
 </Target>
 ```
 
