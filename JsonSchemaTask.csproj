@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<GenerateDependencyFile>true</GenerateDependencyFile>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	  
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	  
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.4.0" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.4.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" />
+	<PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
+    <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.14">
+      <PrivateAssets>True</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <ProjectReference Include="..\JsonSchema.Models\JsonSchemaValidation.Models.csproj" />
+  </ItemGroup>-->
+ 
+</Project>
