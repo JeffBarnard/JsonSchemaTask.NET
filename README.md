@@ -11,6 +11,7 @@ An MSBuild task to generate json schema validation for .NET POCO classes
 ```
 
 Models can be annotated for validation rules using standard System.ComponentModel.DataAnnotations attributes.
+```
 [Required]
 [ReadOnly]
 [Description]
@@ -21,6 +22,7 @@ Models can be annotated for validation rules using standard System.ComponentMode
 [RegularExpression]
 [Url]
 [EnumDataType]
+```
 
 Model properties can be opt-in for json schema generation by adding the [JsonSchemaInclude] annotation.
 ```
