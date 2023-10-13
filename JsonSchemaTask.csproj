@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
 	<GenerateDependencyFile>true</GenerateDependencyFile>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	  
