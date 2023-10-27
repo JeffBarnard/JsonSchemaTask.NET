@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -9,13 +8,8 @@ using Newtonsoft.Json.Schema.Generation;
 
 namespace JsonSchemaTask
 {
-    public class JsonSchemaGenerator
+    public class NewtonsoftGenerator : JsonSchemaGeneratorBase
     {
-        private string _workingdir;
-        private string _outputdirectory = "JsonSchema";
-
-        public event EventHandler<(MessageImportance, string)> OnLog;
-
         /// <summary>
         /// Task entry point
         /// </summary>
@@ -29,8 +23,8 @@ namespace JsonSchemaTask
 
             try
             {
-                Debugger.Launch();
-                OnLog?.Invoke(this, (MessageImportance.High, $"Working directory {_workingdir}"));
+                System.Diagnostics.Debugger.Launch();
+                OnLogMessage((MessageImportance.High, $"Working directory {_workingdir}"));
 
                 // Process the list of files found in the directory.
                 string[] fileEntries = Directory.GetFiles($"{_workingdir}\\{modeldirectory}");
@@ -42,20 +36,20 @@ namespace JsonSchemaTask
                     string typeName = filePart.Substring(0, filePart.LastIndexOf('.'));
                     var type = assemblyTypes.Where(t => t.Name == typeName).FirstOrDefault();
 
-                    OnLog?.Invoke(this, (MessageImportance.High, $"Processing filename {fileName} - Typename will be {typeName}"));
+                    OnLogMessage((MessageImportance.High, $"Processing filename {fileName} - Typename will be {typeName}"));
 
                     // When using reflection to call a generic method, we must first use reflection to get the method itself
                     // https://stackoverflow.com/questions/232535/how-do-i-use-reflection-to-call-a-generic-method
-                    MethodInfo method = typeof(JsonSchemaGenerator).GetMethod(nameof(GenerateSchemaForPath));
+                    MethodInfo method = typeof(NewtonsoftGenerator).GetMethod(nameof(GenerateSchemaForPath));
                     MethodInfo generic = method.MakeGenericMethod(type);
                     generic.Invoke(this, new object[] { typeName });
                 }
 
-                OnLog?.Invoke(this, (MessageImportance.High, $"Finished {nameof(JsonSchemaGenerator)}"));
+                OnLogMessage((MessageImportance.High, $"Finished {nameof(NewtonsoftGenerator)}"));
             }
             catch (Exception ex)
             {
-                OnLog?.Invoke(this, (MessageImportance.High, ex.Message));
+                OnLogMessage((MessageImportance.High, ex.Message));
             }
 
             return true;
@@ -89,7 +83,7 @@ namespace JsonSchemaTask
             }
             catch (Exception ex)
             {
-                OnLog?.Invoke(this, (MessageImportance.High, ex.Message));
+                OnLogMessage((MessageImportance.High, ex.Message));
             }
         }
     }

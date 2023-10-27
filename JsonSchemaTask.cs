@@ -37,7 +37,7 @@ namespace JsonSchemaTask.Build.Utilities
                 Log?.LogMessage(MessageImportance.High, $"Starting {nameof(JsonSchemaTask)}");
                 Log?.LogMessage(MessageImportance.High, $"{AssemblyPath}");
 
-                var generator = new JsonSchemaGenerator();
+                var generator = new NewtonsoftGenerator();
                 generator.OnLog += Generator_OnLog;
                 generator.Generate(Environment.CurrentDirectory, ModelDirectory, ConvertDirectory, AssemblyName, AssemblyPath);
 

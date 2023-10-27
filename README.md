@@ -1,5 +1,8 @@
 # JsonSchemaTask.NET
-An MSBuild task to generate json schema validation for .NET POCO classes
+An MSBuild task to generate json schema validation for .NET POCO classes.
+Compatible with full .NET Framework MSBuild (Visual Studio).
+
+Supports both Newtonsoft JsonSchema.NET and NJsonSchema generation libraries.
 
 # Usage
 
