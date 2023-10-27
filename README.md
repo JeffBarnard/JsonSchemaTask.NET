@@ -32,3 +32,5 @@ string Name { get; set; }
 
 # TODO
 Create a nuget package for easy integration into projects
+
+https://learn.microsoft.com/en-us/visualstudio/msbuild/tutorial-custom-task-code-generation?view=vs-2022
